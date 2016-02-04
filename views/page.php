@@ -10,7 +10,7 @@ return "
         {$html->getScript()}
     </head>
     <body>
-    	<ul>{$html->getNavigation()}</ul>
+    	<ul id='navigation_basic'>{$html->getNavigation()}</ul>
     	<div id='page'></div>
     </body>
 </html>";

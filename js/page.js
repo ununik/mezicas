@@ -81,3 +81,63 @@ function addName(td, id){
 		mypostrequest.send(parameters)
 	}
 }
+
+function mezicasClick(){
+	var mypostrequest=new ajaxRequest()
+	mypostrequest.onreadystatechange=function(){
+	 if (mypostrequest.readyState==4){
+	  if (mypostrequest.status==200 || window.location.href.indexOf("http")==-1){
+			  document.getElementById("subpage").innerHTML=mypostrequest.responseText
+			  document.getElementById('number').value = parseInt(document.getElementById('number').value) + 1;
+	  }
+	  else{
+	   alert("An error has occured making the request")
+	  }
+	 }
+	}
+	var number = parseInt(document.getElementById('number').value);
+	var timestamp = parseInt(Math.floor(Date.now() / 1000));
+	var cisloMezicasu = parseInt(document.getElementById('cisloMezicasu').value);
+	var parameters = "number=" + number + "&timestamp=" + timestamp + "&cisloMezicasu=" + cisloMezicasu;
+	mypostrequest.open("POST", "controllers/mezicas/new.php", true)
+	mypostrequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	mypostrequest.send(parameters)
+}
+function showResultsCategory(select){
+	var mypostrequest=new ajaxRequest()
+	mypostrequest.onreadystatechange=function(){
+	 if (mypostrequest.readyState==4){
+	  if (mypostrequest.status==200 || window.location.href.indexOf("http")==-1){
+			  document.getElementById("results").innerHTML=mypostrequest.responseText
+	  }
+	  else{
+	   alert("An error has occured making the request")
+	  }
+	 }
+	}
+	var category = parseInt(select.value);
+	
+	var parameters = "category=" + category+ "&mezicas=" + 1;
+	mypostrequest.open("POST", "controllers/mezicas/showCategoryResults.php", true)
+	mypostrequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	mypostrequest.send(parameters)
+}
+
+function showResultsCategoryAndMezicas(category, mezicas){
+	var mypostrequest=new ajaxRequest()
+	mypostrequest.onreadystatechange=function(){
+	 if (mypostrequest.readyState==4){
+	  if (mypostrequest.status==200 || window.location.href.indexOf("http")==-1){
+			  document.getElementById("results").innerHTML=mypostrequest.responseText
+	  }
+	  else{
+	   alert("An error has occured making the request")
+	  }
+	 }
+	}
+	
+	var parameters = "category=" + category + "&mezicas=" + mezicas;
+	mypostrequest.open("POST", "controllers/mezicas/showCategoryResults.php", true)
+	mypostrequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	mypostrequest.send(parameters)
+}

@@ -1,0 +1,109 @@
+body{
+	padding: 0px;
+	font-family: sans-serif;
+}
+.banner{
+	display: none;
+}
+h3{
+	text-align: center;
+}
+#navigation_basic{
+	display: block;
+	width: 100%;
+	height: 35px;
+	border: 1px solid black;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	padding: 0px;
+	margin: 0px;
+	background-color: white;
+}
+#navigation_basic li{
+	display: inline-block;
+	font-size: 20px;
+	border: 2px solid black;
+	float: left;
+	margin: 5px 0px 5px 10px;
+	
+}
+#navigation_basic li:nth-child(even){
+	float: right;
+	margin: 5px 10px 5px 0px;
+}
+
+#page{
+	margin-top: 35px;
+	margin-bottom: 150px;
+}
+
+#mezicas_form{
+	position: fixed;
+	right: 0px;
+	top: 35px;
+	width: 120px;
+	background-color: white;
+	z-index: 1000000;
+}
+#mezicas_form h2{
+	text-align: center;
+	font-size: 18px;
+}
+#mezicas_form .div_form_box{
+	margin: 10px 0px;
+}
+#mezicas_form .div_form_box label{
+	display: block;
+	font-size: 14px;
+}
+#mezicas_form .div_form_box input{
+	width: 100%;
+}
+#mezicas_form .div_form_box select{
+	width: 100%;
+}
+#mezicas_form .input_now{
+	width: 50px;
+	height: 50px;
+	margin: 15px auto 0px auto;
+	display: block;
+	border-radius: 100%;
+}
+
+#subpage{
+	margin-right: 120px;
+}
+
+#mezicasy_tabulka{
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 13px;
+}
+#mezicasy_tabulka th{
+	font-size: 10px;
+}
+#mezicasy_tabulka tr:nth-child(even){
+	background-color: silver;
+}
+#mezicasy_tabulka .poradi{
+	width: 30px;
+}
+#mezicasy_tabulka .stCislo{
+	width: 40px;
+}
+#mezicasy_tabulka .jmeno{
+	width: 130px;
+}
+#mezicasy_tabulka .cas{
+	text-align: right;
+}
+#mezicasy_tabulka #lastNumberAdded{
+	background-color: gray;
+}
+.mezicasNumberAll{
+	text-align: center;	
+}
+.mezicasNumber{
+	margin: 0px 10px;
+}

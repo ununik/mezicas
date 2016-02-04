@@ -11,4 +11,5 @@ $startList->addToNavigation('<li onclick="openSubpage(\'startList/list.php\')">N
 $startList->addToNavigation('<li onclick="openSubpage(\'startList/clearList.php\')">Vyprazdnit startovni listinu</li>');
 
 
+
 print(include ('../views/startList/page.php'));

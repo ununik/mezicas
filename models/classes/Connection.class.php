@@ -8,9 +8,7 @@ class Connection
             $dbh->exec("set names utf8");
             return $dbh;
         }else{
-            $dbh = new PDO('mysql:host=wm100.wedos.net;dbname=d18905_hpcz', 'w18905_hpcz', 'vL3REs8E');
-            $dbh->exec("set names utf8");
-            return $dbh;
+            return new PDO('mysql:host=localhost;dbname=tiary.wz.cz7069', 'tiary.wz.cz7069', 'VqOziuR');
         }
     }
 }
