@@ -42,10 +42,13 @@ function saveNewStart(){
 	 if (mypostrequest.readyState==4){
 	  if (mypostrequest.status==200 || window.location.href.indexOf("http")==-1){
 			  document.getElementById("status").innerHTML=mypostrequest.responseText
+			  document.getElementById('loading').style.backgroundImage = "";
 	  }
 	  else{
 	   alert("An error has occured making the request")
 	  }
+	 }  else {
+		 document.getElementById('loading').style.backgroundImage = "url('images/load.gif')";
 	 }
 	}
 	var date = document.getElementById('date').value;
@@ -88,11 +91,14 @@ function mezicasClick(){
 	 if (mypostrequest.readyState==4){
 	  if (mypostrequest.status==200 || window.location.href.indexOf("http")==-1){
 			  document.getElementById("subpage").innerHTML=mypostrequest.responseText
+			  document.getElementById('loading').style.backgroundImage = "";
 			  document.getElementById('number').value = parseInt(document.getElementById('number').value) + 1;
 	  }
 	  else{
 	   alert("An error has occured making the request")
 	  }
+	 } else {
+		 document.getElementById('loading').style.backgroundImage = "url('images/load.gif')";
 	 }
 	}
 	var number = parseInt(document.getElementById('number').value);
@@ -104,31 +110,38 @@ function mezicasClick(){
 	mypostrequest.send(parameters)
 }
 function showResultsCategory(select){
+	var category = parseInt(select.value);
 	var mypostrequest=new ajaxRequest()
 	mypostrequest.onreadystatechange=function(){
 	 if (mypostrequest.readyState==4){
 	  if (mypostrequest.status==200 || window.location.href.indexOf("http")==-1){
 			  document.getElementById("results").innerHTML=mypostrequest.responseText
+			  document.getElementById('loading').style.backgroundImage = "";
+			  var timeout = setTimeout(function(){ showResultsCategoryAgain(category, 1);  clearTimeout(timeout);  }, 10000);
+			  clearTimeout(timeout);
 	  }
 	  else{
 	   alert("An error has occured making the request")
 	  }
 	 }
 	}
-	var category = parseInt(select.value);
 	
 	var parameters = "category=" + category+ "&mezicas=" + 1;
 	mypostrequest.open("POST", "controllers/mezicas/showCategoryResults.php", true)
 	mypostrequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
 	mypostrequest.send(parameters)
 }
-
+function showResultsCategoryAgain(category, mezicas)
+{
+	showResultsCategoryAndMezicas(category, mezicas)
+}
 function showResultsCategoryAndMezicas(category, mezicas){
 	var mypostrequest=new ajaxRequest()
 	mypostrequest.onreadystatechange=function(){
 	 if (mypostrequest.readyState==4){
 	  if (mypostrequest.status==200 || window.location.href.indexOf("http")==-1){
-			  document.getElementById("results").innerHTML=mypostrequest.responseText
+		  document.getElementById("results").innerHTML=mypostrequest.responseText
+		  var timeout = setTimeout(function(){ showResultsCategoryAgain(category, mezicas); clearTimeout(timeout); }, 10000);
 	  }
 	  else{
 	   alert("An error has occured making the request")
@@ -140,4 +153,23 @@ function showResultsCategoryAndMezicas(category, mezicas){
 	mypostrequest.open("POST", "controllers/mezicas/showCategoryResults.php", true)
 	mypostrequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
 	mypostrequest.send(parameters)
+}
+
+function nextNumber(){
+	if(document.getElementById('number').value != ""){
+		var number = parseInt(document.getElementById('number').value);
+	}else{
+		var number = 0;
+	}
+	number++;
+	document.getElementById('number').value = number;
+}
+function previousNumber(){
+	if(document.getElementById('number').value != ""){
+		var number = parseInt(document.getElementById('number').value);
+	}else{
+		var number = 2;
+	}
+	number--;
+	document.getElementById('number').value = number;
 }

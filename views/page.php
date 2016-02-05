@@ -12,5 +12,6 @@ return "
     <body>
     	<ul id='navigation_basic'>{$html->getNavigation()}</ul>
     	<div id='page'></div>
+    	<div id='loading'></div>
     </body>
 </html>";

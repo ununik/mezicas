@@ -5,7 +5,8 @@ $container .= "<select id='cisloMezicasu'>$cisloMezicasu</select></div>";
 
 
 $container .= '<div class="div_form_box"><label for="number">Startovni cislo</label>
-					<input id="number" type="text"></div>';
+					<div id="nextNumber" onclick="nextNumber()">vyssi</div>
+					<input id="number" type="text"><div id="previousNumber" onclick="previousNumber()">nizsi</div></div>';
 $container .= '<input type="submit" onclick="mezicasClick()" value="Teď" class="input_now"></div>';
 
 return $container;

@@ -41,32 +41,35 @@ h3{
 #mezicas_form{
 	position: fixed;
 	right: 0px;
-	top: 35px;
+	top: 40px;
 	width: 120px;
 	background-color: white;
 	z-index: 1000000;
 }
 #mezicas_form h2{
 	text-align: center;
-	font-size: 18px;
+	font-size: 13px;
+	margin: 0px 0px 5px 0px;
 }
 #mezicas_form .div_form_box{
-	margin: 10px 0px;
+	margin: 5px 0px 11px 0px;
 }
 #mezicas_form .div_form_box label{
 	display: block;
-	font-size: 14px;
+	font-size: 11px;
 }
 #mezicas_form .div_form_box input{
 	width: 100%;
+	font-size: 11px;
 }
 #mezicas_form .div_form_box select{
 	width: 100%;
+	font-size: 11px;
 }
 #mezicas_form .input_now{
 	width: 50px;
 	height: 50px;
-	margin: 15px auto 0px auto;
+	margin: 6px auto 0px auto;
 	display: block;
 	border-radius: 100%;
 }
@@ -106,4 +109,25 @@ h3{
 }
 .mezicasNumber{
 	margin: 0px 10px;
+}
+#nextNumber{
+	width: 100%;
+	padding: 4px 0px;
+	font-size: 12px;
+	text-align: center;
+}
+#previousNumber{
+	width: 100%;
+	padding: 4px 0px;
+	font-size: 12px;
+	text-align: center;
+}
+#loading{
+	position: fixed;
+	top: 55px;
+	left: 55px;	
+	width: 75px;
+	height: 75px;
+	z-index: 1;
+	background-repeat: no-repeat;
 }
