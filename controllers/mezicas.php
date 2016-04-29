@@ -6,7 +6,7 @@ function __autoload($name)
 	include_once "../models/classes/$name.class.php";
 }
 $mezicas = new Mezicas();
-$mezicas->addToNavigation('<li onclick="openSubpage(\'mezicas/results.php\')">Vysledky mezicasu</li>');
+$mezicas->addToNavigation('<li onclick="openSubpage(\'mezicas/results.php\')">Výsledky mezičasů</li>');
 
 $cisloMezicasu = "<option value='0'>auto</option>";
 for($i = 1; $i < 11; $i++)
@@ -15,5 +15,6 @@ for($i = 1; $i < 11; $i++)
 }
 $mezicas->setForm(include '../views/mezicas/form.php');
 
+$startlist = include '../views/mezicas/startlist.php';
 
 print(include ('../views/mezicas/page.php'));

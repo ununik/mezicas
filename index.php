@@ -12,7 +12,7 @@ $html->addScript('<script src="js/page.js"></script>');
 
 $html->addCss("<link rel='stylesheet' href='css/landscape.css' type='text/css' media='screen'/>");
 
-$html->addToNavigation('<li onclick="openPage(\'startList.php\')">Startovni listina</li>');
-$html->addToNavigation('<li onclick="openPage(\'mezicas.php\')">Mereni mezicasu</li>');
+$html->addToNavigation('<li onclick="openPage(\'startList.php\')">Startovní listina</li>');
+$html->addToNavigation('<li onclick="openPage(\'mezicas.php\')">Měření mezičasů</li>');
 
 print(include 'views/page.php');

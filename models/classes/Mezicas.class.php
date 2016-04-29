@@ -126,4 +126,14 @@ class Mezicas extends Connection
 			return 0;
 		}
 	}
+	
+	public function getWholeStartlist()
+	{
+	    $db = parent::connect();
+	    $result = $db->prepare("SELECT * FROM `startList` ORDER BY `startTimestamp` ASC, `number` ASC");
+	    $result->execute(array());
+	    $items = $result->fetchAll();
+	    
+	    return $items;
+	}
 }

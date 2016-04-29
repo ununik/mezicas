@@ -44,9 +44,20 @@ class StartList extends Connection
 
 	public function saveNewStartNumber($number, $category, $start)
 	{
-		$db = parent::connect();
-		$result = $db->prepare("INSERT INTO `startList`(`number`, `category`, `startTimestamp`) VALUES (?, ?, ?)");
+		$result = parent::connect()->prepare("INSERT INTO `startList`(`number`, `category`, `startTimestamp`) VALUES (?, ?, ?)");
 		$result->execute(array($number, $category, $start));
+	}
+	public function checkStartNumber($number)
+	{
+	    $result = parent::connect()->prepare("SELECT `id` FROM `startList` WHERE `number`=?");
+	    $result->execute(array($number));
+	    $items = $result->fetch();
+	    
+	    if (isset($items['id'])) {
+	        return false;
+	    } else {
+	        return true;
+	    }
 	}
 
 	public function getStartlistAll()
@@ -91,5 +102,11 @@ class StartList extends Connection
 		$db = parent::connect();
 		$result = $db->prepare("TRUNCATE TABLE  `startList`");
 		$result->execute(array());
+	}
+	public function deleteNumber($id)
+	{
+	    $db = parent::connect();
+	    $result = $db->prepare("DELETE FROM `startList` WHERE `id`=?");
+	    $result->execute(array($id));
 	}
 }

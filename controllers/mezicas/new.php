@@ -91,3 +91,4 @@ foreach ($table as $table)
 	echo $table;
 }
 echo '</table>';
+

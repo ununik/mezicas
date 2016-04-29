@@ -43,12 +43,14 @@ function saveNewStart(){
 	  if (mypostrequest.status==200 || window.location.href.indexOf("http")==-1){
 			  document.getElementById("status").innerHTML=mypostrequest.responseText
 			  document.getElementById('loading').style.backgroundImage = "";
+			  document.getElementById('loading').style.display = "none";
 	  }
 	  else{
 	   alert("An error has occured making the request")
 	  }
 	 }  else {
 		 document.getElementById('loading').style.backgroundImage = "url('images/load.gif')";
+		 document.getElementById('loading').style.display = "block";
 	 }
 	}
 	var date = document.getElementById('date').value;
@@ -65,7 +67,7 @@ function saveNewStart(){
 }
 
 function addName(td, id){
-	var name = prompt("Vlozit jmeno", "");
+	var name = prompt("Jméno", "");
 	if (name != null) {
 	    td.innerHTML = name;
 	    var mypostrequest=new ajaxRequest()
@@ -92,6 +94,7 @@ function mezicasClick(){
 	  if (mypostrequest.status==200 || window.location.href.indexOf("http")==-1){
 			  document.getElementById("subpage").innerHTML=mypostrequest.responseText
 			  document.getElementById('loading').style.backgroundImage = "";
+			  document.getElementById('loading').style.display = "none";
 			  document.getElementById('number').value = parseInt(document.getElementById('number').value) + 1;
 	  }
 	  else{
@@ -99,6 +102,7 @@ function mezicasClick(){
 	  }
 	 } else {
 		 document.getElementById('loading').style.backgroundImage = "url('images/load.gif')";
+		 document.getElementById('loading').style.display = "block";
 	 }
 	}
 	var number = parseInt(document.getElementById('number').value);
@@ -117,7 +121,8 @@ function showResultsCategory(select){
 	  if (mypostrequest.status==200 || window.location.href.indexOf("http")==-1){
 			  document.getElementById("results").innerHTML=mypostrequest.responseText
 			  document.getElementById('loading').style.backgroundImage = "";
-			  var timeout = setTimeout(function(){ showResultsCategoryAgain(category, 1);  clearTimeout(timeout);  }, 10000);
+			  document.getElementById('loading').style.display = "none";
+			  var timeout = setTimeout(function(timeout){  showResultsCategoryAgain(category, 1);  clearTimeout(timeout); }, 3000);
 			  clearTimeout(timeout);
 	  }
 	  else{
@@ -133,7 +138,7 @@ function showResultsCategory(select){
 }
 function showResultsCategoryAgain(category, mezicas)
 {
-	showResultsCategoryAndMezicas(category, mezicas)
+	showResultsCategoryAndMezicas(category, mezicas)	
 }
 function showResultsCategoryAndMezicas(category, mezicas){
 	var mypostrequest=new ajaxRequest()
@@ -141,7 +146,8 @@ function showResultsCategoryAndMezicas(category, mezicas){
 	 if (mypostrequest.readyState==4){
 	  if (mypostrequest.status==200 || window.location.href.indexOf("http")==-1){
 		  document.getElementById("results").innerHTML=mypostrequest.responseText
-		  var timeout = setTimeout(function(){ showResultsCategoryAgain(category, mezicas); clearTimeout(timeout); }, 10000);
+		  var timeout = setTimeout(function(timeout){ showResultsCategoryAgain(category, mezicas); clearTimeout(timeout); }, 3000);
+		  clearTimeout(timeout);
 	  }
 	  else{
 	   alert("An error has occured making the request")
@@ -172,4 +178,29 @@ function previousNumber(){
 	}
 	number--;
 	document.getElementById('number').value = number;
+}
+function prubehStartlist(cislo){
+	document.getElementById('number').value = cislo;
+	mezicasClick();
+}
+function pripravitStartlist(cislo){
+	document.getElementById('number').value = cislo;
+}
+function odstranitZeStartovniListiny(cislo){
+	var mypostrequest=new ajaxRequest()
+	mypostrequest.onreadystatechange=function(){
+	 if (mypostrequest.readyState==4){
+	  if (mypostrequest.status==200 || window.location.href.indexOf("http")==-1){
+		  openSubpage('startList/list.php')
+	  }
+	  else{
+	   alert("An error has occured making the request")
+	  }
+	 }
+	}
+	
+	var parameters = "cislo=" + cislo;
+	mypostrequest.open("POST", "controllers/startList/deleteNumber.php", true)
+	mypostrequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	mypostrequest.send(parameters)
 }

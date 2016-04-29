@@ -11,7 +11,7 @@ h3{
 #navigation_basic{
 	display: block;
 	width: 100%;
-	height: 35px;
+	height: 39px;
 	border: 1px solid black;
 	position: fixed;
 	top: 0px;
@@ -26,7 +26,7 @@ h3{
 	border: 2px solid black;
 	float: left;
 	margin: 5px 0px 5px 10px;
-	
+	padding: 2px 1px;
 }
 #navigation_basic li:nth-child(even){
 	float: right;
@@ -34,17 +34,30 @@ h3{
 }
 
 #page{
-	margin-top: 35px;
-	margin-bottom: 150px;
+	margin-top: 41px;
 }
 
 #mezicas_form{
 	position: fixed;
-	right: 0px;
-	top: 40px;
+	right: 190px;
+	top: 44px;
 	width: 120px;
 	background-color: white;
 	z-index: 1000000;
+}
+#mezicas_formStartlist{
+	position: fixed;
+	right: 0px;
+	top: 0px;
+	margin-top: 44px;
+	height: 90%;
+	overflow: auto;
+	width: 190px;
+	border-left: 1px dotted black;
+	z-index: 1000000;
+}
+#mezicas_formStartlist table{
+	font-size: 12px;
 }
 #mezicas_form h2{
 	text-align: center;
@@ -68,14 +81,19 @@ h3{
 }
 #mezicas_form .input_now{
 	width: 50px;
-	height: 50px;
-	margin: 6px auto 0px auto;
+	height: 0px;
+	margin: 36px auto 0px auto;
 	display: block;
 	border-radius: 100%;
+	border: 2px solid black;
+	vertical-align: middle;
+	font-size: 20px;
+	padding: 15px 0px 33px 0px;
+	text-align:center;
 }
 
 #subpage{
-	margin-right: 120px;
+	#margin-right: 120px;
 }
 
 #mezicasy_tabulka{
@@ -123,6 +141,7 @@ h3{
 	text-align: center;
 }
 #loading{
+	display: none;
 	position: fixed;
 	top: 55px;
 	left: 55px;	
@@ -130,4 +149,70 @@ h3{
 	height: 75px;
 	z-index: 1;
 	background-repeat: no-repeat;
+}
+#startList_navigation li{
+	display: inline-block;
+	border: 2px solid black;
+	padding: 2px;
+	margin: 4px 10px;
+}
+.formular {
+	display: block;
+	margin: 3px 0px;
+	padding: 7px 0px;
+	border-bottom: 1px dotted black;
+}
+.formular label {
+	min-width: 190px;
+	display: inline-block;
+	text-align: right;
+	margin-right: 10px;
+}
+.form_text_input{
+	width: 150px;
+}
+#sequence{
+	width: 30px;
+}
+.start_po{
+	display: inline-block;
+}
+.button{
+	padding: 4px;
+	border: 2px solid black;
+	display: inline-block;
+	margin: 10px 0px 10px 45px
+}
+#start_list_table{
+	width: 100%;
+	border-collapse: collapse;
+}
+#start_list_table th{
+	border-bottom: 1px solid black;
+}
+#start_list_table tr{
+	padding: 2px 0px;	
+}
+.table_number{
+	max-width: 55px;
+	text-align: right;
+	padding-right: 2px;
+}
+#start_list_table .sudy{
+	background-color: silver;
+}
+.table_category{
+	max-width: 75px;
+	text-align: center;
+}
+.table_cas{
+	max-width: 140px;
+	text-align: center;
+}
+.table_odstranit{
+	width: 15px;
+	text-align: right;
+}
+#pageWrapper{
+	margin-right: 310px;
 }
