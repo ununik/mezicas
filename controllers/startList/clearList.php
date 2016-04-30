@@ -9,4 +9,4 @@ function __autoload($name)
 $startList = new StartList();
 $startList->TRUNCATEStartList();
 
-echo 'Startovni listna je prazdna';
+echo 'Startovní listna je prázdná';

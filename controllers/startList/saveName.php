@@ -11,4 +11,3 @@ $id = $_POST['id'];
 
 $startList = new StartList();
 $startList->saveName($name, $id);
-echo 'sadasdas';

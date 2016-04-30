@@ -61,9 +61,9 @@ for ($i=1; $i<=$countOfMezicas; $i++){
 echo '</div>';
 
 
-echo "<h3>Mezicas cislo - $mezicasCislo</h3>";
+echo "<h3>Mezičas číslo - $mezicasCislo</h3>";
 echo '<table id="mezicasy_tabulka">';
-echo '<tr><th class="poradi">poradi</th><th class="stCislo">st. cislo</th><th class="jmeno">jmeno</th><th>ztrata</th><th>cas</th></tr>';
+echo '<tr><th class="poradi">pořadí</th><th class="stCislo">st. čislo</th><th class="jmeno">jméno</th><th>ztráta</th><th>čas</th></tr>';
 foreach ($table as $table)
 {
 	echo $table;

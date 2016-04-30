@@ -204,3 +204,23 @@ function odstranitZeStartovniListiny(cislo){
 	mypostrequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
 	mypostrequest.send(parameters)
 }
+function hideMenu(){
+	var button = document.getElementById('open_close');
+	var menu1 = document.getElementById('mezicas_form');
+	var menu2 = document.getElementById('mezicas_formStartlist');
+	var page = document.getElementById('pageWrapper');
+	
+	if(button.innerHTML == '&gt;&gt;'){
+		menu1.style.display = "none";
+		menu2.style.display = "none";
+		button.style.right = "-5px";
+		button.innerHTML = '&lt;&lt;'
+		page.style.marginRight = "25px";
+	} else {
+		menu1.style.display = "block";
+		menu2.style.display = "block";
+		button.style.right = "304px";
+		button.innerHTML = '&gt;&gt;'
+		page.style.marginRight = "335px";
+	}
+}

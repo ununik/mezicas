@@ -10,12 +10,12 @@ $mezicas = new Mezicas();
 
 if($_POST['number'] == "" || $_POST['number'] == "NaN" || $_POST['number'] == 0)
 {
-	$err[] = 'Spatne zadane cislo!';
+	$err[] = 'Špatně zadané číslo!';
 }
 $competitor = $mezicas->getListForNumber($_POST['number']);
 if(!isset($competitor['id']) || $competitor['id']==0)
 {
-	$err[] = 'Takove cislo ve startovce neni!';
+	$err[] = 'Takové číslo není ve startovce!';
 }
 
 if(count($err) < 1)
@@ -83,9 +83,9 @@ foreach ($competitors as $id => $resultTime)
 	}
 }
 
-echo "<h3>Mezicas cislo - $mezicasCislo</h3>";
+echo "<h3>Mezičas číslo - $mezicasCislo</h3>";
 echo '<table id="mezicasy_tabulka">';
-echo '<tr><th class="poradi">poradi</th><th class="stCislo">st. cislo</th><th class="jmeno">jmeno</th><th>ztrata</th><th>cas</th></tr>';
+echo '<tr><th class="poradi">pořadí</th><th class="stCislo">st. číslo</th><th class="jmeno">jméno</th><th>ztráta</th><th>čas</th></tr>';
 foreach ($table as $table)
 {
 	echo $table;

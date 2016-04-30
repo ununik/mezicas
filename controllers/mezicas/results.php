@@ -7,7 +7,7 @@ function __autoload($name)
 }
 
 $startList = new StartList();
-$optionCategories = "<option value='0'>Vyber kategorii</option>";
+$optionCategories = "<option value='0'>Výběr kategorií</option>";
 foreach ($startList->getAllCategories() as $category)
 {
 	$optionCategories .= '<option value="' . $category['id'] . '">' . $category['long'] . '</option>';

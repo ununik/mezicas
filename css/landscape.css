@@ -214,5 +214,16 @@ h3{
 	text-align: right;
 }
 #pageWrapper{
-	margin-right: 310px;
+	margin-right: 335px;
+}
+#open_close{
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-radius: 5px;
+	position: absolute;
+	width: 25px;
+	padding: 15px 8px 15px 3px;
+	top: 210px;
+	right: 304px;
 }
